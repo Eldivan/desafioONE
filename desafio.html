@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alura ONE</title>
+	<link rel="icon" href= "alura.jpeg">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+
+	<div class="logo-desafio">
+		<img src="logodesafio.jpg" alt="logo desafio Alura Challenges">
+	</div>
+
+	<div class="entrada">
+		<textarea minlength="1" maxlength="200" class="entrada-texto" type="text" id="valor" placeholder="Digite seu texto: " required  /> </textarea> 
+		<figcaption>*Quantidade máxima 200 caracteres.</figcaption>
+		
+		
+		<div class="botoes">
+		<button  class="botao-criptografar" type="submit" >Criptografar</button><br><br>
+
+		<button class="botao-descriptografar" type="submit" id="botaodescriptografar" >Descriptografar</button><br><br>
+		</div>
+
+	</div>
+
+	<div class="saida">
+		<div>
+			<output class="out-saida" id="textoEncriptado"/>
+		</div>
+
+		<div>
+	    	<button class="botao-copiar" type="submit" id="botao-copiar">Copiar</button> 
+		</div>
+
+	</div>
+	
+	<script>
+
+		var texto =" ";
+		
+		function criptografar(){
+			var texto = document.getElementById("valor").value;
+			textoCriptografado = texto
+			.replace(/e/g, "enter")
+			.replace(/a/g, "ai")
+			.replace(/o/g, "ober")
+			.replace(/u/g, "ufat")
+			.replace(/i/g, "imes")
+			;
+			console.log("textoCriptografado");
+
+			document.getElementById("textoEncriptado").innerHTML = textoCriptografado;
+		}
+
+		var button = document.querySelector("button");
+		button.onclick = criptografar;
+
+	
+		function descriptografar(){
+			var texto = document.getElementById("valor").value;
+			textoCriptografado = texto
+			.replace(/aimes/g, "ai")
+			.replace(/ai/g, "a")
+			.replace(/enter/g, "e")
+			.replace(/imes/g, "i")
+			.replace(/ober/g, "o")
+			.replace(/ufat/g, "u");
+			
+			console.log("textoCriptografado");
+			document.getElementById("textoEncriptado").innerHTML = textoCriptografado;
+
+		}
+
+		var button = document.querySelector("#botaodescriptografar");
+		button.onclick = descriptografar;
+
+		
+	
+			function copiar(){
+			var texto = document.getElementById("textoEncriptado");
+			texto.select;
+			//texto.setSelectionRange(0, 99999);
+			navigator.clipboard.writeText(texto.value);
+
+			
+			alert("O texto copiado e: "+texto.value);
+		}
+
+
+		var button = document.querySelector("#botao-copiar");
+		button.onclick = copiar;
+	
+	</script>
+
+</body>
+</html>	
