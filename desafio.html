@@ -18,9 +18,8 @@
 		<textarea minlength="1" maxlength="200" class="entrada-texto" type="text" id="valor" placeholder="Digite seu texto: " required  /> </textarea> 
 		<figcaption>*Quantidade máxima 200 caracteres.</figcaption>
 		
-		
 		<div class="botoes">
-		<button  class="botao-criptografar" type="submit" >Criptografar</button><br><br>
+		<button  class="botao-criptografar" type="submit" id="botaocriptografar">Criptografar</button>
 
 		<button class="botao-descriptografar" type="submit" id="botaodescriptografar" >Descriptografar</button><br><br>
 		</div>
@@ -40,8 +39,6 @@
 	
 	<script>
 
-		var texto =" ";
-		
 		function criptografar(){
 			var texto = document.getElementById("valor").value;
 			textoCriptografado = texto
@@ -49,14 +46,12 @@
 			.replace(/a/g, "ai")
 			.replace(/o/g, "ober")
 			.replace(/u/g, "ufat")
-			.replace(/i/g, "imes")
-			;
-			console.log("textoCriptografado");
+			.replace(/i/g, "imes");
 
 			document.getElementById("textoEncriptado").innerHTML = textoCriptografado;
 		}
 
-		var button = document.querySelector("button");
+		var button = document.querySelector("#botaocriptografar");
 		button.onclick = criptografar;
 
 	
@@ -70,26 +65,19 @@
 			.replace(/ober/g, "o")
 			.replace(/ufat/g, "u");
 			
-			console.log("textoCriptografado");
 			document.getElementById("textoEncriptado").innerHTML = textoCriptografado;
-
 		}
 
 		var button = document.querySelector("#botaodescriptografar");
 		button.onclick = descriptografar;
-
-		
 	
 			function copiar(){
-			var texto = document.getElementById("textoEncriptado");
-			texto.select;
-			//texto.setSelectionRange(0, 99999);
-			navigator.clipboard.writeText(texto.value);
-
-			
-			alert("O texto copiado e: "+texto.value);
+				var texto = document.getElementById("textoEncriptado");
+				texto.select;
+				navigator.clipboard.writeText(texto.value);
+				
+				alert("O texto copiado e: "+texto.value);
 		}
-
 
 		var button = document.querySelector("#botao-copiar");
 		button.onclick = copiar;
